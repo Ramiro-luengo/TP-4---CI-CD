@@ -13,5 +13,27 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        withGradle() {
+          sh 'chmod +x gradle'
+          sh './gradlew test'
+        }
+
+      }
+    }
+
+    stage('Validate') {
+      steps {
+        sh 'echo Validate!'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh 'echo Deployed!'
+      }
+    }
+
   }
 }
