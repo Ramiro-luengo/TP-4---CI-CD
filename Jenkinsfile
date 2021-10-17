@@ -5,11 +5,11 @@ pipeline {
       steps {
         git(url: 'https://github.com/Ramiro-luengo/TP-4---CI-CD.git', branch: 'main')
         withGradle() {
-          sh 'gradle init'
+          sh 'init'
         }
 
         withGradle() {
-          sh 'gradle bootRun'
+          sh 'bootRun'
         }
 
       }
