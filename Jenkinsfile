@@ -24,8 +24,10 @@ pipeline {
     }
 
     stage('Analyze') {
-      withGradle() { 
-        sh './gradlew sonarqube'
+      steps {
+        withGradle() { 
+          sh './gradlew sonarqube'
+        }
       }
     }
     
