@@ -26,7 +26,7 @@ pipeline {
     stage('Analyze') {
       steps {
         withGradle() {
-          sh 'chmod +x gradle'
+          sh './gradlew sonarqube -Dsonar.host.url=sonarqube:9000'
           sh './gradlew sonarqube'
         }
 
