@@ -28,9 +28,10 @@ pipeline {
         withSonarQubeEnv() { 
           sh './gradlew sonarqube'
         }
+
       }
     }
-    
+
     stage('Validate') {
       steps {
         sh 'echo Validate!'
