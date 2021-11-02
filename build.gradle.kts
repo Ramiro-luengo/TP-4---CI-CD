@@ -4,9 +4,17 @@ plugins {
     id("com.diffplug.spotless") version "5.17.0"
     id("org.springframework.boot") version "2.5.5"
     id("org.seasar.doma.compile") version "1.1.0"
+    id("org.sonarqube") version "3.3"
 }
 
+apply (plugin= "org.sonarqube")
 apply(plugin = "io.spring.dependency-management")
+
+sonarqube {
+    properties {
+        property("sonar.sourceEncoding","UTF-8")
+    }
+}
 
 spotless {
     java {
