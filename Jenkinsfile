@@ -32,6 +32,15 @@ pipeline {
       }
     }
 
+    stage('Jacoco'){
+      steps {
+        withGradle(){
+          sh './gradlew jacocoTestReport'
+        }
+      }
+    }
+
+
     stage('Validate') {
       steps {
         sh 'echo Validate!'
