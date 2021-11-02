@@ -25,12 +25,13 @@ pipeline {
 
     stage('Analyze') {
       steps {
-        withGradle() { 
+        withGradle() {
           sh './gradlew sonarqube'
         }
+
       }
     }
-    
+
     stage('Validate') {
       steps {
         sh 'echo Validate!'
