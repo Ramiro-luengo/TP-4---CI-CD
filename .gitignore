@@ -2,6 +2,7 @@
 .gradle/
 .metadata/
 .settings/
+.vscode/
 bin/
 build/
 target/
@@ -11,4 +12,3 @@ target/
 .idea
 out
 .sdkmanrc
-.vscode/
