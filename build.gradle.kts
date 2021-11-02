@@ -5,10 +5,15 @@ plugins {
     id("org.springframework.boot") version "2.5.5"
     id("org.seasar.doma.compile") version "1.1.0"
     id("org.sonarqube") version "3.3"
+    id("jacoco")
 }
 
 apply (plugin= "org.sonarqube")
 apply(plugin = "io.spring.dependency-management")
+
+jacoco {
+    toolVersion = "0.8.7"
+}
 
 sonarqube {
     properties {
@@ -85,5 +90,9 @@ eclipse {
 tasks {
     test {
         useJUnitPlatform()
+        finalizedBy(jacocoTestReport)
+    }
+    jacocoTestReport {
+        dependsOn(test)
     }
 }
