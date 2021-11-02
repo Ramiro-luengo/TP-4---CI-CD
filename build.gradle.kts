@@ -13,6 +13,8 @@ apply(plugin = "io.spring.dependency-management")
 sonarqube {
     properties {
         property("sonar.sourceEncoding","UTF-8")
+        property("sonar.login","admin")
+        property("sonar.password","estamoseneso")
     }
 }
 

@@ -23,16 +23,12 @@ pipeline {
       }
     }
 
-    node {
-  stage('Analyze') {
-    git 'https://github.com/foo/bar.git'
-  }
-  stage('SonarQube analysis') {
-    withSonarQubeEnv() { // Will pick the global server connection you have configured
-      sh './gradlew sonarqube'
+    stage('Analyze') {
+      withSonarQubeEnv() { // Will pick the global server connection you have configured
+        sh './gradlew sonarqube'
+      }
     }
-  }
-  }
+    
     stage('Validate') {
       steps {
         sh 'echo Validate!'
