@@ -25,21 +25,22 @@ pipeline {
 
     stage('Analyze') {
       steps {
-        withGradle() { 
+        withGradle() {
+          sh 'chmod +x gradle'
           sh './gradlew sonarqube'
         }
 
       }
     }
 
-    stage('Jacoco'){
+    stage('Jacoco') {
       steps {
-        withGradle(){
+        withGradle() {
           sh './gradlew jacocoTestReport'
         }
+
       }
     }
-
 
     stage('Validate') {
       steps {
