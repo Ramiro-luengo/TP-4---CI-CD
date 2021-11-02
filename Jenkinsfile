@@ -24,7 +24,7 @@ pipeline {
     }
 
     stage('Analyze') {
-      withGradle() { // Will pick the global server connection you have configured
+      withGradle() { 
         sh './gradlew sonarqube'
       }
     }
